@@ -17,7 +17,7 @@ body {
 .recordingContainer {
   position: absolute;
   bottom: 0;
-  display: none;
+  display: flex;
   flex-direction: row;
   width: 100%;
 }
@@ -25,7 +25,7 @@ body {
 .metaFooterContainer {
   position: absolute;
   bottom: 0;
-  display: flex;
+  display: none;
   flex-direction: row;
   width: 100%;
 }
