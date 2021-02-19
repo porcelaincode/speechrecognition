@@ -6,7 +6,9 @@ This repository is the front-end part of the project.
 
 ## Status
 
-It is currently under development and **not ready for testing.** 
+It is currently under development and **not ready for testing.**
+
+Currently support exists for **Chrome** users only.
 
 However, the project can be viewed here - [speechai](https://speechai.netlify.app)
 
@@ -16,14 +18,15 @@ However, the project can be viewed here - [speechai](https://speechai.netlify.ap
    ```sh
    git clone https://github.com/porcelaincode/speechrecognition.git
    ```
-3. Run on local network
+2. Run on local network
    ```sh
    npm start
    ```
 
-
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)

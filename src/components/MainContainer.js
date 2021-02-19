@@ -10,7 +10,7 @@ function valuetext(value) {
     return `${value}°C`;
 }
 
-function MainContainer() {
+function MainContainer(props) {
     const [state, setState] = useState(false);
 
     const toggleDrawerStatus = () => { 
@@ -31,13 +31,7 @@ function MainContainer() {
                     Assistant: Hello There!
                 </p>
                 <p className="dialogueYourStyle">
-                    You: Hello!
-                </p>
-                <p className="dialogueStyle">
-                    Assistant: Ask me my commands or add new ones.
-                </p>
-                <p className="dialogueYourStyle">
-                    You: What can you do?
+                    You: {props.speech}
                 </p>
             </div>
             <div className="sideControlsContainer">

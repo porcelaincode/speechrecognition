@@ -1,9 +1,23 @@
 body {
+  background: linear-gradient(-40deg, #1f3f56, #2e3b42, #263136, #222c31);
+  background-size: 400% 400%;
   font-family: "Poppins", sans-serif;
+  animation: gradient 15s ease infinite;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .App {
-  background-color: #282c34;
+  background-color: transparent;
   height: 100vh;
   /* display: flex;
   text-align: center;
@@ -98,7 +112,7 @@ body {
 .drawerStyle {
   display: flex;
   flex-direction: column;
-  background-color: #313641;
+  background-color: #222c31;
   width: 300px;
   height: 100vh;
 }
