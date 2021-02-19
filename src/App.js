@@ -1,10 +1,16 @@
 import React , {useState, useEffect} from 'react';
-import './App.css';
+
 import FooterContainer from "./components/FooterContainer";
+import HeaderComponent from "./components/HeaderComponent";
 import MetaFooterContainer from "./components/MetaFooterContainer";
 import MainContainer from "./components/MainContainer";
+
 import { Button } from "@material-ui/core";
+
 import MicIcon from '@material-ui/icons/Mic';
+import StopRoundedIcon from '@material-ui/icons/StopRounded';
+
+import './App.css';
 
 const SpeechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
 
@@ -66,6 +72,7 @@ function App() {
 
   return (
     <div className="App">
+      <HeaderComponent />
       <MainContainer speech={dialogue}/>
       <MetaFooterContainer/>
       <div className="recordingContainer">
@@ -92,7 +99,7 @@ function App() {
             )
           }
           >
-              <MicIcon fontSize="large" />
+              {isListening ? <StopRoundedIcon fontSize="large"/> : <MicIcon fontSize="large" /> }
           </Button>
         </div>
       </div>

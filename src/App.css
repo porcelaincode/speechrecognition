@@ -1,5 +1,19 @@
 body {
-  background: linear-gradient(-40deg, #1f3f56, #2e3b42, #263136, #222c31);
+  /* background: linear-gradient(-40deg, #1f3f56, #2e3b42, #263136, #222c31); */
+  /* background: linear-gradient(
+    -40deg,
+    rgba(6, 0, 102, 1) 0%,
+    rgba(0, 0, 28, 1) 35%,
+    rgba(0, 31, 84, 1) 52%,
+    rgba(0, 131, 158, 1) 100%
+  ); */
+  /* background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  ); */
+  background-image: linear-gradient(315deg, #0f0c2e 0%, #111111 74%);
   background-size: 400% 400%;
   font-family: "Poppins", sans-serif;
   animation: gradient 15s ease infinite;
@@ -26,6 +40,28 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white; */
+}
+
+.headerContainer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconLink {
+  color: #ffffff55;
+  text-decoration: none;
+  font-size: small;
+  background-color: #ffffff05;
+  border-radius: 5px;
+  padding-bottom: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .recordingContainer {
