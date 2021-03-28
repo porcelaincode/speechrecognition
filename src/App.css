@@ -312,3 +312,16 @@ svg {
   flex-direction: column;
   align-items: center;
 }
+
+.BrowserSupport {
+  background-image: linear-gradient(315deg, #0f0c2e 0%, #111111 74%);
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: calc(5px + 2vmin);
+  color: rgb(255, 255, 255);
+}
