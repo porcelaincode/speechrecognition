@@ -29,18 +29,23 @@ function MainContainer(props) {
   };
 
   const handleDelete = () => {
-    console.log("Delete intereset");
+    console.log("Delete");
+  };
+
+  const renderingMessages = () => {
+    props.messagesRendering.map((item, key) => {
+      item.type === "ai" ? (
+        <p className="dialogueStyle">Assistant: {item.message}</p>
+      ) : (
+        <p className="dialogueYourStyle">You: {item.message}</p>
+      );
+    });
   };
 
   return (
     <div className="mainContainer">
-      <div className="dialogueContainer">
-        {props.transcribed.map((transcribedSpeech, key) => (
-          <p className="dialogueYourStyle">You: {transcribedSpeech}</p>
-        ))}
-        {props.airesponse.map((response, key) => (
-          <p className="dialogueStyle">Assistant: {response}</p>
-        ))}
+      <div id="messagesContainer" className="dialogueContainer">
+        {/* <renderingMessages /> */}
         <p className="dialogueYourStyle">You: {props.speech}</p>
       </div>
       <div className="sideControlsContainer">
@@ -77,18 +82,6 @@ function MainContainer(props) {
                 <Chip
                   style={{ fontSize: "medium", margin: "3px" }}
                   label="Music"
-                  color="secondary"
-                  onDelete={handleDelete}
-                />
-                <Chip
-                  style={{ fontSize: "medium", margin: "3px" }}
-                  label="UI/UX"
-                  color="secondary"
-                  onDelete={handleDelete}
-                />
-                <Chip
-                  style={{ fontSize: "medium", margin: "3px" }}
-                  label="Football"
                   color="secondary"
                   onDelete={handleDelete}
                 />

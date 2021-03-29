@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
 
 function BrowserSupport() {
   return (
@@ -10,7 +10,7 @@ function BrowserSupport() {
         Browser. We're looking forward to extending support to your favourite
         browsers soon!
       </div>
-      <HeaderComponent />
+      <FooterComponent />
     </>
   );
 }

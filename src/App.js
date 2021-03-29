@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 
-import HeaderComponent from "./components/HeaderComponent";
+// import custom components
+import FooterComponent from "./components/FooterComponent";
 import MainContainer from "./components/MainContainer";
+import BrowserSupport from "./BrowserSupport";
 
+// import material ui components
 import { Button } from "@material-ui/core";
 
+// import icons
 import MicIcon from "@material-ui/icons/Mic";
 import StopRoundedIcon from "@material-ui/icons/StopRounded";
 
-import { isChrome } from "react-device-detect";
+// import utility tools
+import { isChrome, isChromium } from "react-device-detect";
 
+// import css file
 import "./App.css";
-import BrowserSupport from "./BrowserSupport";
-import { Response } from "./processing/Response";
 
 const SpeechRecognition =
   window.speechRecognition || window.webkitSpeechRecognition;
@@ -24,11 +28,10 @@ mic.interimResults = true;
 mic.lang = "en-US";
 
 function App() {
-  const [isListening, setIsListening] = useState(false);
+  const [isListening, setIsListening] = useState(true);
   const [dialogue, setDialogue] = useState(null);
 
-  const [transcribedDialogues, setTranscribedDialogues] = useState([]);
-  const [airesponse, setAiResponse] = useState([]);
+  const [messageArray, setMessageArray] = useState([]);
 
   useEffect(() => {
     handleListen();
@@ -45,11 +48,10 @@ function App() {
       // when stop button is clicked
       mic.onend = () => {
         console.log("mic stopped");
-        transcribedDialogues.push(dialogue);
-        // do something with transcribed dialogue here...
 
-        const response = Response(dialogue);
-        airesponse.push(response);
+        if (dialogue !== null) {
+          console.log(dialogue);
+        }
 
         setDialogue("");
       };
@@ -66,7 +68,6 @@ function App() {
         .map((result) => result[0])
         .map((result) => result.transcript)
         .join("");
-      console.log(transcript);
 
       setDialogue(transcript);
 
@@ -82,24 +83,10 @@ function App() {
 
   return (
     <div className="App">
-      <HeaderComponent />
-      <MainContainer
-        speech={dialogue}
-        transcribed={transcribedDialogues}
-        airesponse={airesponse}
-      />
+      <FooterComponent />
+      <MainContainer speech={dialogue} />
       <div className="recordingContainer">
-        <div className="waveContainer">
-          {isListening ? (
-            <></>
-          ) : (
-            <>
-              <div className="wave"></div>
-              <div className="wave2"></div>
-              <div className="wave3"></div>
-            </>
-          )}
-        </div>
+        <div className="waveContainer">{isListening ? <></> : <></>}</div>
         <div className="buttonContainer">
           <Button
             style={{
@@ -126,7 +113,7 @@ function App() {
 
 function BrowserRenderer() {
   console.log(`Chrome detected [bool]: ${isChrome}`);
-  if (isChrome) return <App />;
+  if (isChrome || isChromium) return <App />;
   return <BrowserSupport />;
 }
 
